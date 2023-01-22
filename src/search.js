@@ -8,7 +8,7 @@ function SearchField({ handleSubmit }) {
       <label>
         <input className="search-input" type="text" name="country" autoComplete='off'  placeholder='Search Country here'/>
       </label>
-      <button type="submit" className="search-button">Submit</button>
+      <button type="submit" className="search-button">Search</button>
     </form>
   );
 }
