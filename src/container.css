@@ -56,3 +56,13 @@
     font-weight: bold;
   }
   
+  .wikiLink{
+    /* text-decoration: none; */
+    color: black;
+  }
+  /* .wikiLink:visited{
+    color: black;
+  } */
+  .wikiLink:hover{
+    color: rgb(242, 24, 60);
+  }

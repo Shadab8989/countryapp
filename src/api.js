@@ -10,8 +10,12 @@ function CountryInfo() {
   const handleSubmit = event => {
     event.preventDefault();
     setErrorMessage(null); // to clear error message
-
+    
     const country = event.target.elements.country.value;
+    
+    let inputfield = document.querySelector('.search-input');
+    inputfield.value="" 
+
     fetch(`https://restcountries.com/v2/name/${country}`)
       .then(response => response.json())
       .then(data => {
