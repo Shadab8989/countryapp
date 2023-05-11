@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+import "./App.css"
+
+function CountryInfo() {
+    const [countries, setCountries] = useState([]);
+    const [errorMessage, setErrorMessage] = useState(null);
+  
+    const handleSubmit = event => {
+      event.preventDefault();
+  
+      const country = event.target.elements.country.value;
+      fetch(`https://restcountries.com/v2/name/${country}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.length > 0) {
+            data.forEach(countryData => {
+              if (countryData.name.toLowerCase() === country.toLowerCase()) {
+                const flag = countryData.flag;
+                const capital = countryData.capital;
+                const population = countryData.population;
+                const name = countryData.name;
+                if (!countries.find(c => c.capital === capital)) {
+                  setCountries(prevCountries => [
+                    ...prevCountries,
+                    { flag, capital, population, name }
+                  ]);
+                }
+              }
+            });
+          } else {
+            setErrorMessage('No countries found');
+          }
+        })
+        .catch(error => {
+          setErrorMessage('An error occurred');
+        });
+    };
+  
+  
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Country:
+          <input type="text" name="country" className="input" />
+        </label>
+        <button type="submit" className="button">Submit</button>
+      </form>
+      {errorMessage && <p>{errorMessage}</p>}
+      <div style={{ display: 'flex' }}>
+        {countries.map(country => (
+          <div key={country.capital} className="country-div">
+            <img src={country.flag} alt="flag" style={{ width: '100%', height: '100%' }} />
+            <p>Country: {country.name}</p>
+            <p>Capital: {country.capital}</p>
+            <p>Population: {country.population}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default CountryInfo;
+
+
+
+import React from 'react';
+
+function SearchField({ handleSubmit }) {
+  const [value, setValue] = React.useState('');
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
+
+  const handleClick = event => {
+    event.preventDefault();
+    handleSubmit(event);
+    setValue(''); // clear input field
+  };
+
+  return (
+    <form onSubmit={handleClick}>
+      <input
+        type="text"
+        name="country"
+        placeholder="Enter a country name"
+        value={value}
+        onChange={handleChange}
+      />
+      <button type="submit">Search</button>
+    </form>
+  );
+}
+
+export default SearchField;
