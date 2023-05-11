@@ -28,10 +28,14 @@ function CountryInfo() {
               const population = countryData.population;                  // add population
               const region = countryData.region;                          // add region field
               const currency = countryData.currencies[0].name;            // add currency data
+              const currency_symbol = countryData.currencies[0].symbol
+              if(countries.find(c=>c.capital === capital)){
+                setErrorMessage('Country as been searched already');
+              }
               if (!countries.find(c => c.capital === capital)) {
                 setCountries(prevCountries => [
                   ...prevCountries,
-                  { flag, capital, population, name, region,currency }
+                  { flag, capital, population, name, region,currency,currency_symbol }
                 ]);
               }
             }
@@ -49,6 +53,7 @@ function CountryInfo() {
     <div>
       <SearchField handleSubmit={handleSubmit} />
       {errorMessage && <p>{errorMessage}</p>}
+      <p>Countries Searched: {countries.length}</p>
       <div style={{ display: 'flex', flexWrap: 'wrap',justifyContent: 'center'}}>
         {countries.map(country => (
           <CountryDiv key={country.capital} country={country} />

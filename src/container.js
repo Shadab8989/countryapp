@@ -27,12 +27,13 @@ function CountryDiv({ country }) {
 					Population: <span>{displayPopulation}</span>
 				</p>
 				<p>
-					Currency: <span>{country.currency}</span>
+					Currency: <span>{country.currency}({country.currency_symbol})</span>
 				</p>
 				<p>
 					Region: <span>{country.region}</span>
 				</p> 
 				<p><a className="wikiLink" href = {`https://en.wikipedia.org/wiki/${country.name}`} target="_blank" rel="noreferrer">WIKIPEDIA</a></p>
+				{/* <button type="button" onClick={removeCountry}>Close</button> */}
 			</div>
 		</div>
 	);
