@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import SearchField from './search.js';
 import CountryDiv from './container.js';
-
+import CountriesDataArray from './context/createContext.js';
 
 function CountryInfo() {
+  const countrydataVal = useContext(CountriesDataArray)
+  console.log(countrydataVal)  
   const [countries, setCountries] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -20,6 +22,7 @@ function CountryInfo() {
       .then(response => response.json())
       .then(data => {
         if (data.length > 0) {
+  
           data.forEach(countryData => {
             if (countryData.name.toLowerCase() === country.toLowerCase()) {
               const name = countryData.name;                              // add name
@@ -42,13 +45,14 @@ function CountryInfo() {
           });
         } else {
           setErrorMessage('No countries found');
+          setTimeout(()=>setErrorMessage(''),3000)
         }
       })
       .catch(error => {
         setErrorMessage('An error occurred');
       });
   };
-
+  
   return (
     <div>
       <SearchField handleSubmit={handleSubmit} />
