@@ -4,8 +4,10 @@ import CountryDiv from './container.js';
 import CountriesDataArray from './context/createContext.js';
 
 function CountryInfo() {
-  const countrydataVal = useContext(CountriesDataArray)
-  console.log(countrydataVal)  
+  const countrydataVal= useContext(CountriesDataArray)
+  if(countrydataVal.length){
+    console.log(countrydataVal)  
+  }
   const [countries, setCountries] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
 
