@@ -8,8 +8,6 @@ function CountryInfo() {
 
 	const [countries, setCountries] = useState([]);
 	const [errorMessage, setErrorMessage] = useState(null);
-  const [countriesArrayLen,setCountriesArrayLen] = useState(countries.length)
-
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -28,11 +26,9 @@ function CountryInfo() {
 					const population = countryData.population; // add population
 					const region = countryData.region; // add region field
 					const currencyValues = Object.values(countryData.currencies);
-
-					// const currency = countryData.currencies[0].name;
 					const currency = currencyValues[0].name; // add currency name
 
-					const currency_symbol = currencyValues[0].symbol;// add currency symbol
+					const currency_symbol = currencyValues[0].symbol; // add currency symbol
 					if (countries.find((c) => c.capital === capital)) {
 						setErrorMessage("Country as been searched already");
 						setTimeout(() => setErrorMessage(""), 3000);
@@ -51,29 +47,9 @@ function CountryInfo() {
 							},
 						]);
 					}
-				} 
-        // else {
-					// setErrorMessage("No countries found");
-					// setTimeout(() => setErrorMessage(""), 3000);
-				// }
+				}
 			});
 		}
-    if(countries.length === countriesArrayLen){
-      setErrorMessage("No countries found");
-      setTimeout(() => setErrorMessage(""), 3000);
-    }
-    else{
-      setCountriesArrayLen(countries.length)
-    }
-
-		// fetch(`https://restcountries.com/v2/name/${country}`)
-		//   .then(response => response.json())
-		//   .then(data => {
-
-		//   })
-		//   .catch(error => {
-		//     setErrorMessage('An error occurred');
-		//   });
 	};
 
 	return (

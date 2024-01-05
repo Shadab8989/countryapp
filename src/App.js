@@ -10,6 +10,9 @@ function App() {
     .then(response=>response.json())
     .then(val=>setData(val))
 },[])
+
+
+
   return (
     <div className="App">
     <CountriesDataArray.Provider value={data}>
