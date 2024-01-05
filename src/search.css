@@ -41,3 +41,9 @@ input.search-input::placeholder{
     background-color: #555;
   }
   
+
+  .search-results{
+    display: flex;
+    justify-content: center;
+
+  }
