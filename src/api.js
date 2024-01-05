@@ -21,7 +21,7 @@ function CountryInfo() {
 			data.forEach((countryData) => {
 				if (countryData.name.common.toLowerCase() === country.toLowerCase()) {
 					const name = countryData.name.common; // add name
-					const flag = countryData.flags.png; // add flag
+					const flag = countryData.flags.png || countryData.flags.svg; // add flag
 					const capital = countryData.capital; // add capital
 					const population = countryData.population; // add population
 					const region = countryData.region; // add region field
