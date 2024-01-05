@@ -1,7 +1,5 @@
 import React, { useState,useEffect } from 'react';
 import "./App.css"
-import SearchField from './search.js';
-import CountryDiv from './container.js';
 import CountryInfo from './api.js';
 import CountriesDataArray from "./context/createContext";
 
