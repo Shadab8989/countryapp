@@ -2,4 +2,11 @@
     width: 100%;
     display: flex;
     z-index: 1;
+    background-color: white;
+    font-size: 1rem;
+}
+
+.search-result:hover{
+    cursor: pointer;
+    background-color: #c7c5c0;
 }
