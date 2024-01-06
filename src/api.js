@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import SearchField from "./search.js";
 import CountryDiv from "./container.js";
 import CountriesDataArray from "./context/createContext.js";
-
+import './api.css';
 function CountryInfo() {
 	const data = useContext(CountriesDataArray);
 
@@ -56,13 +56,15 @@ function CountryInfo() {
 		<div>
 			<SearchField handleSubmit={handleSubmit} />
 			{errorMessage && <p>{errorMessage}</p>}
+			<div className="main-container">
 			<p>Countries Searched: {countries.length}</p>
-			<div
+			<div className="country-display-container"
 				style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
 			>
 				{countries.map((country) => (
 					<CountryDiv key={country.capital} country={country} />
 				))}
+			</div>
 			</div>
 		</div>
 	);

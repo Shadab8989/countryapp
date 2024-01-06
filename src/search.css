@@ -45,5 +45,15 @@ input.search-input::placeholder{
   .search-results{
     display: flex;
     justify-content: center;
-
+    flex-direction: column;
+    width: 400px;
+    /* border: 2px solid black; */
+    margin: auto;
+    /* margin-top: 0.5rem; */
+    border-radius: 5px;
+    font-size: 16px;
+    max-height: 200px;
+    overflow-y: scroll;
+    z-index: 1;
+    
   }

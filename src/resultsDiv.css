@@ -1,0 +1,5 @@
+.search-result{
+    width: 100%;
+    display: flex;
+    z-index: 1;
+}
