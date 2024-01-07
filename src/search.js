@@ -21,10 +21,11 @@ function SearchField({ handleSubmit }) {
     setResult(filterResult)
   }
 
-  function ownHandleSubmit(event){
+  function HandleSubmit(event){
     event.preventDefault();
     handleSubmit(input);
     setInput([])
+    setResult([])
     inputRef.current.focus();
   }
 
@@ -36,7 +37,7 @@ function SearchField({ handleSubmit }) {
 
   return (
     <div className='search-input-container'>
-      <form onSubmit={ownHandleSubmit} className="search-field">
+      <form onSubmit={HandleSubmit} className="search-field">
       <label>
         <input ref={inputRef} className="search-input" type="text" name="country" value={input} autoComplete='off' placeholder='Search Country here' onChange={(e) => {handleChange(e.target.value)}}/>
       </label>
