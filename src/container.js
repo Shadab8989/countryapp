@@ -27,9 +27,9 @@ function CountryDiv({ country }) {
 					Population: <span>{displayPopulation}</span>
 				</p>
 				<p>
-					Currency:{" "}
+					Currency:
 					<span>
-						{country.currency}({country.currency_symbol})
+						{" "}{country.currency}{" "}({country.currency_symbol})
 					</span>
 				</p>
 				<p>

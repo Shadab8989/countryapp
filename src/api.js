@@ -65,6 +65,7 @@ function CountryInfo() {
 						display: "flex",
 						flexWrap: "wrap",
 						justifyContent: "center",
+						marginBottom:"5rem"
 					}}
 				>
 					{countries.map((country) => (
