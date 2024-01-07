@@ -1,0 +1,12 @@
+.main-container {
+	position: fixed;
+	top: 3.5rem;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	height: 100%;
+}
+
+.message-container {
+	display: flex;
+}

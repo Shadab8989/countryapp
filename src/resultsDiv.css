@@ -1,0 +1,19 @@
+
+.search-result > * {
+    z-index: 2;
+
+}
+.search-result{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    font-size: 1rem;
+    padding: 2px;
+    margin-left: 0.5rem;
+
+}
+
+.search-result:hover{
+    cursor: pointer;
+    background-color: #c7c5c0;
+}

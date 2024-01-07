@@ -11,8 +11,6 @@ function App() {
     .then(val=>setData(val))
 },[])
 
-
-
   return (
     <div className="App">
     <CountriesDataArray.Provider value={data}>

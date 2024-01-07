@@ -2,18 +2,17 @@ import React, { useContext, useState } from "react";
 import SearchField from "./search.js";
 import CountryDiv from "./container.js";
 import CountriesDataArray from "./context/createContext.js";
-
+import "./api.css";
 function CountryInfo() {
 	const data = useContext(CountriesDataArray);
 
 	const [countries, setCountries] = useState([]);
 	const [errorMessage, setErrorMessage] = useState(null);
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
+	const handleSubmit = (name) => {
 		setErrorMessage(null); // to clear error message
 
-		const country = event.target.elements.country.value;
+		const country = name;
 
 		let inputfield = document.querySelector(".search-input");
 		inputfield.value = "";
@@ -55,14 +54,24 @@ function CountryInfo() {
 	return (
 		<div>
 			<SearchField handleSubmit={handleSubmit} />
-			{errorMessage && <p>{errorMessage}</p>}
-			<p>Countries Searched: {countries.length}</p>
-			<div
-				style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-			>
-				{countries.map((country) => (
-					<CountryDiv key={country.capital} country={country} />
-				))}
+			<div className="main-container">
+				<div className="message-container">
+					<p>Countries Searched: {countries.length}</p>
+					{errorMessage && <p>{errorMessage}</p>}
+				</div>
+				<div
+					className="country-display-container"
+					style={{
+						display: "flex",
+						flexWrap: "wrap",
+						justifyContent: "center",
+						marginBottom:"5rem"
+					}}
+				>
+					{countries.map((country) => (
+						<CountryDiv key={country.capital} country={country} />
+					))}
+				</div>
 			</div>
 		</div>
 	);
