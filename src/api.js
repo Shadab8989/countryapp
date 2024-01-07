@@ -3,6 +3,7 @@ import SearchField from "./search.js";
 import CountryDiv from "./container.js";
 import CountriesDataArray from "./context/createContext.js";
 import "./api.css";
+
 function CountryInfo() {
 	const data = useContext(CountriesDataArray);
 
