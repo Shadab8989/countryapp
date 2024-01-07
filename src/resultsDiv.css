@@ -1,9 +1,16 @@
+
+.search-result > * {
+    z-index: 2;
+
+}
 .search-result{
     width: 100%;
     display: flex;
-    z-index: 1;
     background-color: white;
     font-size: 1rem;
+    padding: 2px;
+    margin-left: 1rem;
+
 }
 
 .search-result:hover{
